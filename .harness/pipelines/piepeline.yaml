@@ -1,0 +1,36 @@
+pipeline:
+  name: Build - GH Actions repo
+  identifier: Build_GH_Actions_repo
+  projectIdentifier: Product_Exploratory
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.tejakummarikuntla
+        repoName: gh-actions
+        build: <+input>
+  stages:
+    - stage:
+        name: Say Hello
+        identifier: Say_Hello
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: echo "Helloo,..... Welcome to Harness CI"
+                  description: Say hellooo
